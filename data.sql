@@ -14,6 +14,8 @@ INSERT INTO animals
 (name, date_of_birth, escape_attempts, neutered, weight_Kg)
 VALUES ('Devimon', '12-5-2017', '5', 'true', '11')
 
+--second batch of data
+
 INSERT INTO animals
 (name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES ('Charmander', '2020=02-08', '0', 'false', '11');
