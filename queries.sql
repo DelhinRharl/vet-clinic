@@ -11,16 +11,26 @@ SELECT * FROM animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
 BEGIN;
 UPDATE animals SET species = 'unspecified';
+SELECT species FROM animals;
 ROLLBACK;
+
+SELECT speces FROM animals;
 
 BEGIN;
 UPDATE animals SET species = 'Digimon' WHERE name LIKE '%mon';
 UPDATE animals SET species = 'Pokemon' WHERE species IS NULL;
+
+SELECT * FROM animals;
+
 COMMIT;
+
+SELECT * FROM animals;
 
 BEGIN;
 DELETE FROM animals;
+SELECT * FROM animals;
 ROLLBACK;
+SELECT * FROM animals;
 
 BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022-1-1';
@@ -36,9 +46,12 @@ SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
 
 SELECT AVG(weight_kg) FROM animals;
 
-SELECT COUNT(*) FROM animals WHERE neutered = false;
+SELECT COUNT(*) FROM animals WHERE neutered = FALSE;
 
-SELECT MAX(escape_attempts) FROM animals;
+SELECT COUNT(*) FROM animals WHERE neutered = TRUE;
+
+SELECT neutered, MAX(escape_attempts) FROM animals
+GROUP BY neutered;
 
 SELECT species, MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY species;
 

@@ -18,7 +18,7 @@ VALUES ('Devimon', '12-5-2017', '5', 'true', '11')
 
 INSERT INTO animals
 (name, date_of_birth, escape_attempts, neutered, weight_kg)
-VALUES ('Charmander', '2020=02-08', '0', 'false', '11');
+VALUES ('Charmander', '2020=02-08', '0', 'false', '-11');
 
 INSERT INTO animals
 (name, date_of_birth, escape_attempts, neutered, weight_kg)
@@ -30,7 +30,7 @@ VALUES ('Squirtle', '1993-04-02', '3', 'false', '-12.13');
 
 INSERT INTO animals
 (name, date_of_birth, escape_attempts, neutered, weight_kg)
-VALUES ('Angemon', '2005-07-07', '1', 'true', '-45');
+VALUES ('Angemon', '2005-06-12', '1', 'true', '-45');
 
 INSERT INTO animals
 (name, date_of_birth, escape_attempts, neutered, weight_kg)
