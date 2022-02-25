@@ -98,18 +98,15 @@ SELECT vet.name as vet_name, COUNT(date_of_visit)
 
   --all vets and specialties
 
-  SELECT 
-	vets.name,
-	species.name AS specialized_in
-FROM vets
-LEFT JOIN specializations ON specializations.vets_id = vets.id
-LEFT JOIN  species ON specializations.species_id = species.id;
+  SELECT vets.name, species.name FROM vets JOIN specializations ON vets.id = specializations.vet_id JOIN species ON species.id = specializations.species_id;
+
 
 --Stephanie Mendez 2020-04-01-2020-08-30
-SELECT animals.name AS animal_name, visits.date_of_visit FROM animals
-JOIN visits ON visits.animals_id = animals.id
-JOIN vets ON vets.id = visits.vets_id
-WHERE vets.name = 'Stephanie Mendez' AND visits.date_of_visit >= '2020-04-01' AND visits.date_of_visit <= '2020-08-30';
+SELECT an.name, vet.name AS vet_name, v.date_of_visit
+  FROM visits v JOIN animals an ON an.id = v.animal_id
+  JOIN vets vet ON vet.id = v.vet_id
+  WHERE vet.name = 'Stephanie Mendez' AND v.date_of_visit 
+    BETWEEN 'Apr 1, 2020' AND 'Aug 30, 2020';
 
 --most visits 
 SELECT an.name, COUNT(an.name) AS most_visits
@@ -123,18 +120,16 @@ SELECT an.name, COUNT(an.name) AS most_visits
   WHERE vet.name = 'Maisy Smith' ORDER BY v.date_of_visit ASC LIMIT 1;
 
   --most recent visit
-  SELECT an.id AS animal_id, an.name AS animal, an.date_of_birth, vet.id AS vet_id, vet.name AS vet, vet.age AS vet_age, date_of_visit
+ SELECT an.id AS animal_id, an.name AS animal, an.date_of_birth, vet.id AS vet_id, vet.name AS vet, vet.age AS vet_age, date_of_visit
   FROM visits v JOIN animals an ON an.id = v.animal_id
   JOIN vets vet ON vet.id = v.vet_id ORDER BY v.date_of_visit DESC
   LIMIT 1;
 
     --vet visit -no specialization
-    SELECT COUNT(*)
-FROM visits
-JOIN animals ON animals.id = visits.animals_id
-JOIN vets ON vets.id = visits.vets_id
-JOIN specializations ON specializations.vets_id = visits.vets_id
-WHERE animals.species_id != specializations.species_id;
+
+SELECT vet.name AS vet, COUNT(*) FROM visits vis JOIN vets vet 
+    ON vet.id = vis.vet_id LEFT JOIN specializations s 
+    ON s.vet_id = vis.vet_id WHERE s.id IS NULL GROUP BY vet.name;
 
 --Maisy smith specialty to consider
 SELECT vet.name AS vet, sp.name AS species, COUNT(sp.name)
