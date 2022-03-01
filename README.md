@@ -1,10 +1,6 @@
 # Vet Clinic Database
 
 This is a simple database that shows different characteristics of animals in a vet shop. The data included here describes the birth day, escape attempts, animal names among others.
-
-## Schema diagram
-
-
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
