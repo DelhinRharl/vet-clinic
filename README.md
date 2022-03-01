@@ -4,7 +4,7 @@ This is a simple database that shows different characteristics of animals in a v
 
 ## Schema diagram
  
- ![Diagram](./images/diagram.png)
+ ![diagram](./images/diagram.png)
 
 ## Getting Started
 
