@@ -3,7 +3,8 @@
 This is a simple database that shows different characteristics of animals in a vet shop. The data included here describes the birth day, escape attempts, animal names among others.
 
 ## Schema diagram
-
+ 
+ ![diagram](./images/diagram.png)
 
 ## Getting Started
 
